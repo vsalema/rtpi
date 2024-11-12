@@ -64,12 +64,12 @@ button {
   <html>
   <body>
      <div style="position: fixed; z-index: 0;">
-    <iframe id="iframedemo" width="818" height="505" frameborder="0" allowfullscreen="" scrolling="no" allow="autoplay;fullscreen" onload="adjustIframe(this)"></iframe>
+    <iframe id="iframedemo" width="818" height="505" frameborder="0" allowfullscreen="" scrolling="no" allow="autoplay;fullscreen"></iframe>
     </div>
        
        
     <div style="position: fixed; z-index: 0;">
-    <iframe id="iframedemo2" width="818" height="505" frameborder="0" allowfullscreen="" scrolling="no" allow="autoplay;fullscreen" onload="adjustIframe(this)"></iframe>
+    <iframe id="iframedemo2" width="818" height="505" frameborder="0" allowfullscreen="" scrolling="no" allow="autoplay;fullscreen"></iframe>
     </div>
     
     
@@ -83,7 +83,7 @@ button {
   <script>
   
    {
-  var url = "https://www.elahmad.com/tv/bitmovin.php?id=https://streaming-live.rtp.pt/liverepeater/smil:rtpi.smil/chunklist_b640000_slpt.m3u8",
+  var url = "https://www.elahmad.com/tv/plyr.php?id=https://streaming-live.rtp.pt/liverepeater/smil:rtpi.smil/chunklist_b640000_slpt.m3u8",
 
  
 
@@ -137,9 +137,7 @@ iframe = document.getElementById("myIframe");
         setTimeout(doSomething(),5000);
       };
     }
-    function adjustIframe(obj) {
-      obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
-      }
+    
   
   </script>
   
