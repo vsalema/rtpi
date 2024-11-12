@@ -64,12 +64,12 @@ button {
   <html>
   <body>
      <div style="position: fixed; z-index: 0;">
-    <iframe id="iframedemo" width="818" height="505" frameborder="0" allowfullscreen="" scrolling="no" allow="autoplay;fullscreen"></iframe>
+    <iframe id="iframedemo" width="818" height="505" frameborder="0" allowfullscreen="" scrolling="no" allow="autoplay;fullscreen" onload="adjustIframe(this)"></iframe>
     </div>
        
        
     <div style="position: fixed; z-index: 0;">
-    <iframe id="iframedemo2" width="818" height="505" frameborder="0" allowfullscreen="" scrolling="no" allow="autoplay;fullscreen"></iframe>
+    <iframe id="iframedemo2" width="818" height="505" frameborder="0" allowfullscreen="" scrolling="no" allow="autoplay;fullscreen" onload="adjustIframe(this)"></iframe>
     </div>
     
     
@@ -111,7 +111,37 @@ button {
 }
   
   </script>
+  <script>
+iframe = document.getElementById("myIframe");
+
+    function doSomething() {
+      alert("");
+    }
+
+    if (navigator.userAgent.indexOf("MSIE") > -1 && !window.opera) {
+      var oldonreadystatechange = iframe.onreadystatechange;
+      iframe.onreadystatechange = function(){
+        if (iframe.readyState == "complete"){
+          if (oldonreadystatechange != null) {
+            oldonreadystatechange();
+            setTimeout(doSomething(),5000);
+          }
+        }
+      };
+    } else {
+      var oldonload = iframe.onload;
+      iframe.onload = function(){
+        if (oldonload != null) {
+          oldonload();
+        }
+        setTimeout(doSomething(),5000);
+      };
+    }
+    function adjustIframe(obj) {
+      obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+      }
   
+  </script>
   
   
   </body>
